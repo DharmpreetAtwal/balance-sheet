@@ -1,6 +1,6 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db } from "../config/firebase";
+import { serverTimestamp, addDoc, collection } from "firebase/firestore";
 import { useUserInfo } from "./useUserInfo";
+import { db } from "../config/firebase";
 
 export const useAddEntry = () => {
   const entryCollectionRef = collection(db, "entries");

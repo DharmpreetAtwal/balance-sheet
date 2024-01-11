@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import {
   query,
   collection,
@@ -6,8 +6,8 @@ import {
   orderBy,
   onSnapshot,
 } from "firebase/firestore";
-import { db } from "../config/firebase";
 import { useUserInfo } from "./useUserInfo";
+import { db } from "../config/firebase";
 
 export const useGetEntries = () => {
   const [entries, setEntries] = useState([]);
@@ -28,12 +28,12 @@ export const useGetEntries = () => {
         orderBy("created")
       );
 
-      unsub = onSnapshot(queryEntries, (snapshot) => {
-        let docs = [];
+      unsub = onSnapshot(queryEntries, (snap) => {
         let incomeTotal = 0;
         let expenseTotal = 0;
+        let docs = [];
 
-        snapshot.forEach((doc) => {
+        snap.forEach((doc) => {
           const id = doc.id;
           const entry = doc.data();
 

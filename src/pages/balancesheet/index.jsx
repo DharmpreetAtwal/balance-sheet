@@ -23,8 +23,8 @@ export const BalanceSheet = () => {
       entryAmount,
       entryType,
     });
-    setDescription("");
     setEntryAmount(0);
+    setDescription("");
     setEntryType("expense");
   };
 
@@ -51,7 +51,7 @@ export const BalanceSheet = () => {
           <h1> {name}'s Balance Sheet </h1>
           <div>
             <h3> Balance: </h3>
-            {balance >= 0 ? <h2> ${balance} </h2> : <h2> -${balance * -1} </h2>}
+            {balance < 0 ? <h2> -${balance * -1} </h2> : <h2> ${balance} </h2>}
           </div>
           <div>
             <div>
@@ -111,8 +111,7 @@ export const BalanceSheet = () => {
               <li>
                 <h3> {description} </h3>
                 <p>
-                  {" "}
-                  ${entryAmount} |{" "}
+                  ${entryAmount} {"  "} | {"  "}
                   <label
                     style={{ color: entryType === "income" ? "green" : "red" }}
                   >

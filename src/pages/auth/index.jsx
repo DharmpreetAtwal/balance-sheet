@@ -1,6 +1,6 @@
 import { auth, googleAuthProvider } from "../../config/firebase";
-import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { signInWithPopup } from "firebase/auth";
 import { useUserInfo } from "../../hooks/useUserInfo";
 import { useEffect } from "react";
 
@@ -9,14 +9,14 @@ export const Auth = () => {
   const { isAuth } = useUserInfo();
 
   const signInGoogle = async () => {
-    const results = await signInWithPopup(auth, googleAuthProvider);
-    const authInfo = {
-      userID: results.user.uid,
-      name: results.user.displayName,
-      profilePhoto: results.user.photoURL,
+    const res = await signInWithPopup(auth, googleAuthProvider);
+    const info = {
+      userID: res.user.uid,
+      name: res.user.displayName,
+      profilePhoto: res.user.photoURL,
       isAuth: true,
     };
-    localStorage.setItem("auth", JSON.stringify(authInfo));
+    localStorage.setItem("auth", JSON.stringify(info));
     navigate("/balance-sheet");
   };
 
@@ -27,7 +27,8 @@ export const Auth = () => {
   }, []);
 
   return (
-    <div className="login-page">
+    <div>
+      <h1> Please sign into your google account </h1>
       <button onClick={signInGoogle}> Google Sign In </button>
     </div>
   );
