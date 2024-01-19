@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { BalanceSheet } from "./pages/balancesheet";
 import { Auth } from "./pages/auth/index";
-import { useState } from "react";
 
 function App() {
   return (

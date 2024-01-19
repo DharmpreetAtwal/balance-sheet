@@ -27,9 +27,25 @@ export const Auth = () => {
   }, []);
 
   return (
-    <div>
-      <h1> Please sign into your google account </h1>
-      <button onClick={signInGoogle}> Google Sign In </button>
+    <div className="bg-slate-500 h-screen ">
+      <div className="flex flex-col h-1/6 justify-center space-y-3">
+        <div>
+          <h1 className="bg-red-500 text-white text-center p-2 text-4xl">
+            {" "}
+            Please sign into your google account{" "}
+          </h1>
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            className="bg-green-500 text-white w-40 h-10 round rounded-lg"
+            onClick={signInGoogle}
+          >
+            {" "}
+            Google Sign In{" "}
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
