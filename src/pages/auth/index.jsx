@@ -63,7 +63,7 @@ export const Auth = () => {
               onClick={signInGoogle}
             >
               {" "}
-              Google Sign In{" "}
+              Sign In Google{" "}
             </button>
           </div>
         </div>
